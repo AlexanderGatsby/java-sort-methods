@@ -13,27 +13,77 @@ class Sort{
         }
     }
 
-    void selection(String[] strings, char order) {
-        for (int i = 0; i < (strings.length - 1); i++) {
-            for (int j = (i + 1); j < strings.length; j++) {
-                if (compareStrings(strings[i], strings[j]) == order) {
-                    String aux = strings[i];
-                    strings[i] = strings[j];
+
+    //Bubble function overloading
+    void bubble(String strings[], char order, int ignoreLeft, int ignoreRight){
+        for (int i = (0 + ignoreLeft); i < (strings.length - 1 - ignoreRight); i++) {
+            for (int j = (0 + ignoreLeft); j < (strings.length - i - 1 - ignoreRight); j++) {
+
+                if (compareStrings(strings[j + 1], strings[j]) == order){
+                    String aux = strings[j + 1];
+                    strings[j + 1] = strings[j];
                     strings[j] = aux;
                 }
             }
         }
     }
 
-    void insertion(String strings[], char order) {
-        for (int j = 1; j < strings.length; j++) {
-            String aux = strings[j];
-            int i = j-1;
-            while ((i > -1) && (compareStrings(strings[i], aux) == order)) {
-                strings[i+1] = strings[i];
-                i--;
+
+    void selection(String[] strings, char order) {
+        for (int i = 0; i < strings.length; i++) {
+
+            int limit = i;
+
+            for (int j = (i + 1); j < strings.length; j++) {
+                if (compareStrings(strings[j], strings[limit]) == order) {
+                    limit = j;
+                }
             }
-            strings[i+1] = aux;
+            String aux = strings[i];
+            strings[i] = strings[limit];
+            strings[limit] = aux;
+        }
+    }
+
+    //Selection function overloading
+    void selection(String[] strings, char order, int ignoreLeft, int ignoreRight) {
+        for (int i = (0 + ignoreLeft); i < (strings.length - ignoreRight); i++) {
+
+            int limit = i;
+
+            for (int j = (i + 1); j < (strings.length - ignoreRight); j++) {
+                if (compareStrings(strings[j], strings[limit]) == order) {
+                    limit = j;
+                }
+            }
+            String aux = strings[i];
+            strings[i] = strings[limit];
+            strings[limit] = aux;
+        }
+    }
+
+    void insertion(String strings[], char order) {
+        for (int i = 1; i < strings.length; i++) {
+            String aux = strings[i];
+            int j = i-1;
+            while ((j > -1) && (compareStrings(aux, strings[j]) == order)) {
+                strings[j+1] = strings[j];
+                j--;
+            }
+            strings[j+1] = aux;
+        }
+    }
+
+    //Insertion function overloading
+    void insertion(String strings[], char order, int ignoreLeft, int ignoreRight) {
+        for (int i = (1 + ignoreLeft); i < (strings.length - ignoreRight); i++) {
+            String aux = strings[i];
+            int j = i-1;
+            while ((j > (-1 + ignoreLeft)) && (compareStrings(aux, strings[j]) == order)) {
+                strings[j+1] = strings[j];
+                j--;
+            }
+            strings[j+1] = aux;
         }
     }
 
@@ -49,7 +99,7 @@ class Sort{
         if (a.length() < b.length())
             return 'A';
         else if (a.length() > b.length())
-            return 'B';
+            return 'D';
         
         return 'N';
     }
