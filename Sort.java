@@ -13,8 +13,20 @@ class Sort{
         }
     }
 
-    char compareStrings(String a, String b){
+    void selection(String[] strings, char order) {
+        for (int i = 0; i < (strings.length - 1); i++) {
+            for (int j = (i + 1); j < strings.length; j++) {
+                if (compareStrings(strings[i], strings[j]) == order) {
+                    String aux = strings[i];
+                    strings[i] = strings[j];
+                    strings[j] = aux;
+                }
+            }
+        }
+    }
 
+
+    char compareStrings(String a, String b){
         for (int i = 0; i < a.length() && i < b.length(); i++){
             if (a.charAt(i) < b.charAt(i))
                 return 'A';
@@ -28,6 +40,6 @@ class Sort{
             return 'B';
         
         return 'N';
-
     }
+
 }

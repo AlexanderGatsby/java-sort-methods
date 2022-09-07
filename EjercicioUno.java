@@ -16,7 +16,7 @@ class EjercicioUno{
 
             Sort Ordena = new Sort();
 
-            Ordena.bubble(args, order);
+            Ordena.selection(args, order);
             printArray(args);
 
             
