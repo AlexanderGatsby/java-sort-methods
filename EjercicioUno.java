@@ -16,7 +16,7 @@ class EjercicioUno{
 
             Sort Ordena = new Sort();
 
-            Ordena.selection(args, order);
+            Ordena.insertion(args, order);
             printArray(args);
 
             

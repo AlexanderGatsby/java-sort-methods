@@ -25,6 +25,18 @@ class Sort{
         }
     }
 
+    void insertion(String strings[], char order) {
+        for (int j = 1; j < strings.length; j++) {
+            String aux = strings[j];
+            int i = j-1;
+            while ((i > -1) && (compareStrings(strings[i], aux) == order)) {
+                strings[i+1] = strings[i];
+                i--;
+            }
+            strings[i+1] = aux;
+        }
+    }
+
 
     char compareStrings(String a, String b){
         for (int i = 0; i < a.length() && i < b.length(); i++){
