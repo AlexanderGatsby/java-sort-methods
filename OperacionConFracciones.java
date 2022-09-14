@@ -14,6 +14,7 @@ class OperacionConFracciones{
             System.out.println("2: Restar fracciones");
             System.out.println("3: Multiplicación de fracciones");
             System.out.println("4: División de fracciones");
+            System.out.println("0: Salir");
 
             opcion = scanner.nextInt();
             
@@ -40,13 +41,12 @@ class OperacionConFracciones{
     private static void imprimirFraccion(Fraccion a){
 
         System.out.println("\nResultado: ");
-        /*
+        
         if (a.numerador == 0)
             System.out.println("0\n"); //Resultado de fracción es 0/n, simplificar a 0
-        else if (a.denominador % a.numerador == 0)
-            System.out.println(a.denominador/a.numerador + "\n");//Resultado es un entero.
-        else 
-        */
+        else if (a.numerador % a.denominador == 0)
+            System.out.println(a.numerador/a.denominador + "\n");//Resultado es un entero.
+        else
             System.out.println(a.numerador + "/" + a.denominador + "\n");//Fracción a/b
     }
 

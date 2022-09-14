@@ -67,7 +67,7 @@ public class Fraccion{
         //Evaluar cuál cantidad es la menor, para trabajar sobre ella y ahorrar iteraciones
         if (a < b){
             //Buscar todos los divisores de a
-            for (int i = 2; i <= (a/2); i++){
+            for (int i = 2; i <= a; i++){
                 // Si el módulo de la divisón es cero, sí es divisor de a
                 if (a%i == 0 && b%i == 0){
                     MCD = i;
@@ -75,7 +75,7 @@ public class Fraccion{
             }
         }else {
             //Buscar todos los divisores de b
-            for (int i = 2; i <= (b/2); i++){
+            for (int i = 2; i <= b; i++){
                 // Si el módulo de la divisón es cero, sí es divisor de b
                 if (b%i == 0 && a%i == 0){
                     MCD = i;
