@@ -12,6 +12,7 @@ public class Fraccion{
     // a   c   (a)(d) + (b)(c)
     // - + - = ---------------
     // b   d       (b)(d)
+    // {donde b != 0 o c != 0}
     public static Fraccion suma (Fraccion a, Fraccion b){
         return simplificación((a.numerador*b.denominador + a.denominador*b.numerador), (a.denominador * b.denominador));
     }
@@ -21,6 +22,7 @@ public class Fraccion{
     // a   c   (a)(d) - (b)(c)
     // - - - = ---------------
     // b   d       (b)(d)
+    // {donde b != 0 o d != 0}
     public static Fraccion resta (Fraccion a, Fraccion b){
         return simplificación((a.numerador*b.denominador - a.denominador*b.numerador), (a.denominador * b.denominador));
     }
@@ -30,6 +32,7 @@ public class Fraccion{
     // a   c   (a)(c)
     // - * - = ------
     // b   d   (b)(d)
+    // {donde b != 0 o d != 0}
     public static Fraccion multiplicacion (Fraccion a, Fraccion b){
         return simplificación((a.numerador*b.numerador), (a.denominador * b.denominador));
     }
@@ -37,8 +40,9 @@ public class Fraccion{
 
     //División de fracciones:
     // a   c   (a)(d)
-    // - / - = ------
+    // - / - = ------ 
     // b   d   (b)(c)
+    // {donde b != 0 o c != 0}
     public static Fraccion division (Fraccion a, Fraccion b){
         return simplificación((a.numerador*b.denominador), (a.denominador * b.numerador));
     }

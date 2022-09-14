@@ -28,7 +28,7 @@ class OperacionConFracciones{
                     imprimirFraccion(Fraccion.multiplicacion(leerFraccion(), leerFraccion()));
                 break;
                 case 4:
-                    imprimirFraccion(Fraccion.division(leerFraccion(), leerFraccion()));
+                    imprimirFraccion(Fraccion.division(leerFraccion(), leerDenominadorDeDivision()));
                 break;
             }
 
@@ -38,12 +38,15 @@ class OperacionConFracciones{
     }
 
     private static void imprimirFraccion(Fraccion a){
+
         System.out.println("\nResultado: ");
+        /*
         if (a.numerador == 0)
             System.out.println("0\n"); //Resultado de fracción es 0/n, simplificar a 0
-        else if (a.numerador % a.denominador == 0)
-            System.out.println(a.numerador/a.denominador + "\n");//Resultado es un entero.
+        else if (a.denominador % a.numerador == 0)
+            System.out.println(a.denominador/a.numerador + "\n");//Resultado es un entero.
         else 
+        */
             System.out.println(a.numerador + "/" + a.denominador + "\n");//Fracción a/b
     }
 
@@ -62,8 +65,28 @@ class OperacionConFracciones{
         }
 
         return new Fraccion(numerador, denominador);
-
     }
 
-    
+    private static Fraccion leerDenominadorDeDivision(){
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite el numerador de la fracción");
+        int numerador = scanner.nextInt();
+
+        while (numerador == 0){
+            System.out.println("El numerador no puede ser cero");
+            numerador = scanner.nextInt();
+        }
+
+        System.out.println("Digite el denominador de la fracción");
+        int denominador = scanner.nextInt();
+
+        while (denominador == 0){
+            System.out.println("El denominador no puede ser cero");
+            denominador = scanner.nextInt();
+        }
+
+        return new Fraccion(numerador, denominador);
+    }    
 }
